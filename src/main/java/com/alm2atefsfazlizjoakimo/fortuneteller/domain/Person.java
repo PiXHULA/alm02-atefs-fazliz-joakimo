@@ -14,6 +14,7 @@ public class Person {
     @Id
     String ID;
     String name;
+    String lastname;
     String nationality;
     String Ethnicity;
     String Birthday;
