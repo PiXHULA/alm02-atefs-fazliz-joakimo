@@ -13,4 +13,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public final class Fortune {
     @Id
     String ID;
+    String fortune;
 }

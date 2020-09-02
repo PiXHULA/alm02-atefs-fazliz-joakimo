@@ -1,3 +1,6 @@
+spring:
+  profiles:
+    active: jocke
 ---
 spring:
   profiles: jocke
