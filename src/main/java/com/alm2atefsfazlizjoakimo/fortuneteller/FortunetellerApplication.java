@@ -1,7 +1,7 @@
 package com.alm2atefsfazlizjoakimo.fortuneteller;
 
 import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Person;
-import com.alm2atefsfazlizjoakimo.fortuneteller.repository.MongoDb;
+import com.alm2atefsfazlizjoakimo.fortuneteller.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @RequiredArgsConstructor
 public class FortunetellerApplication implements CommandLineRunner {
 
-    private final MongoDb mongoDb;
+    private final PersonRepository personRepository;
     public static void main(String[] args) {
         SpringApplication.run(FortunetellerApplication.class, args);
     }
@@ -19,6 +19,12 @@ public class FortunetellerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        mongoDb.save(Person.builder().name("Joakim").build());
+        personRepository.save(Person.builder()
+                .name("Joakim")
+                .Birthday("April 29")
+                .Ethnicity("Swedish Chilean")
+                .nationality("Sweden")
+                .Gender("Male")
+                .build());
     }
 }

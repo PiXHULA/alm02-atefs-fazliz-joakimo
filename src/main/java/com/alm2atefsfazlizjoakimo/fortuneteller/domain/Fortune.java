@@ -5,17 +5,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public final class Person {
+public final class Fortune {
     @Id
     String ID;
-    String name;
-    String nationality;
-    String Ethnicity;
-    String Birthday;
-    String Gender;
+    String fortune;
 }
