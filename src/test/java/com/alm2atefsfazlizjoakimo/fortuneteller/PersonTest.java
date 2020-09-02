@@ -22,11 +22,25 @@ public class PersonTest {
     @Test
     public void addingPersonToMongoDBAndGettingPersonFromMongo(){
         Person jocke = Person.builder().name("Joakim").build();
+        Person fazli = new Person();
+        fazli.setID("12345");
+        fazli.setName("Fazli");
+        fazli.setBirthday("Never");
+        fazli.setGender("Unknown");
+        fazli.setNationality("Immigrant");
+        fazli.setEthnicity("Kind person");
         Person atef = new Person();
         atef = personRepository.save(jocke);
         assertThat(jocke.getName()).isEqualTo(atef.getName());
         jocke.setName("Jocke");
         assertThat(jocke.getName()).isEqualTo(atef.getName());
+
+        assertThat(fazli.getID()).isEqualTo("12345");
+        assertThat(fazli.getName()).isEqualTo("Fazli");
+        assertThat(fazli.getBirthday()).isEqualTo("Never");
+        assertThat(fazli.getGender()).isEqualTo("Unknown");
+        assertThat(fazli.getNationality()).isEqualTo("Immigrant");
+        assertThat(fazli.getEthnicity()).isEqualTo("Kind person");
     }
 
 
