@@ -24,4 +24,5 @@ public class PersonController {
     public List<Person> getAllPersons(){
         return personService.getAllPersons();
     }
+
 }
