@@ -21,10 +21,17 @@ const fetchPersons = dispatch => () => {
   });
 }
 
-const sendPerson = dispatch => (person) => {
+const sendPerson = dispatch => async (person) => {
+  // try {
+  //   const response = await personsApi.post('/person', person)
+  //   dispatch({type: FORTUNE, payload: response.data})
+  // } catch (e) {
+  //   dispatch({type: ERROR_MESSAGE, payload: "Error message"})
+  // }
   personsApi.post('/person',person).then(response => {
     dispatch({ type: FORTUNE, payload: response.data })
-  }).catch(e => dispatch({ type: ERROR_MESSAGE, payload: e.message }))
+  }).catch(e =>
+    console.log(e))
 }
 
 const initialState = {

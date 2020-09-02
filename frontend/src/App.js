@@ -11,6 +11,7 @@ const App = () => {
         <h1>Hello</h1>
         <SubmitForm submitForm={sendPerson}/>
         <p>{state.fortune.fortune}</p>
+          <p>{state.errMessage}</p>
         {/*<Persons/>*/}
       </div>)
 };
