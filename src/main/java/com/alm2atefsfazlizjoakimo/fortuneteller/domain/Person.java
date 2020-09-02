@@ -16,14 +16,14 @@ public final class Person {
     @Id
     String ID;
 
-    @NotBlank
+    @NotBlank(message = "Name should not be blank")
     String name;
-    @NotBlank
+    @NotBlank(message = "Nationality should not be blank")
     String nationality;
-    @NotBlank
+    @NotBlank(message = "Ethnicity should not be blank")
     String Ethnicity;
-    @NotBlank
+    @NotBlank(message = "Birthday should not be blank")
     String Birthday;
-    @NotBlank
+    @NotBlank(message = "Gender should not be blank")
     String Gender;
 }
