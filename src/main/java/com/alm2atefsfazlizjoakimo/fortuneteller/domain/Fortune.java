@@ -14,4 +14,5 @@ public final class Fortune {
     @Id
     String ID;
     String fortune;
+    String country;
 }
