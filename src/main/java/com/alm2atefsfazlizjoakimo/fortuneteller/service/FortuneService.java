@@ -10,12 +10,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class FortuneService {
     private final FortuneRepository fortuneRepository;
+    private final Fortune defaultFortune = Fortune.builder().fortune("YOU ARE GOING TO DIE SOON").build();
 
     public Fortune getFortune(Person person) {
         return fortuneRepository
                 .findDistinctByCountryIgnoreCase(person.getNationality().trim())
                 .stream()
                 .findAny() // TODO Proper randomization?
-                .orElse(Fortune.builder().fortune("YOU ARE GOING TO DIE SOON").build());
+                .orElse(defaultFortune);
     }
 }
