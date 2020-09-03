@@ -1,42 +1,43 @@
 import createDataContext from "./personContext";
 import personsApi from "../api/personsApi";
-import { ERROR_MESSAGE, FORTUNE, GET_CUSTOMERS } from "./types";
+import { ERROR_MESSAGE, FORTUNE, GET_CUSTOMERS, LOADING } from "./types";
 
 const reducer = (state, action) => {
   switch (action.type) {
     case GET_CUSTOMERS:
       return { ...state, persons: action.payload }
     case FORTUNE:
-      return { ...state, fortune: action.payload }
+      return { ...state, fortune: action.payload, errMessage: []}
     case ERROR_MESSAGE:
-      return { ...state, errMessage: action.payload }
+      return { ...state, fortune: '', errMessage: action.payload}
     default:
       return state;
   }
 }
 
-const fetchPersons = dispatch => () => {
-  personsApi.get('/person/all').then(response => {
+const fetchPersons = dispatch => async () => {
+  try {
+    const response = await personsApi.get('/person/all')
     dispatch({ type: GET_CUSTOMERS, payload: response.data })
-  });
+  } catch (e) {
+    console.log('Error')
+  }
 }
 
 const sendPerson = dispatch => async (person) => {
-  // try {
-  //   const response = await personsApi.post('/person', person)
-  //   dispatch({type: FORTUNE, payload: response.data})
-  // } catch (e) {
-  //   dispatch({type: ERROR_MESSAGE, payload: "Error message"})
-  // }
-  personsApi.post('/person',person).then(response => {
+  try {
+    const response = await personsApi.post('/person', person);
     dispatch({ type: FORTUNE, payload: response.data })
-  }).catch(e =>
-    console.log(e))
+  } catch ({ response }) {
+    if (response.status === 400) {
+      dispatch({ type: ERROR_MESSAGE, payload: response.data.errors })
+    }
+  }
 }
 
 const initialState = {
   persons: [],
-  errMessage: '',
+  errMessage: [],
   fortune: ''
 }
 

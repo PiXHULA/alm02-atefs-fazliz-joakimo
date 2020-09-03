@@ -1,3 +1,4 @@
 export const GET_CUSTOMERS='GET_CUSTOMERS'
 export const ERROR_MESSAGE='ERROR_MESSAGE'
 export const FORTUNE='FORTUNE'
+export const LOADING='LOADING'
