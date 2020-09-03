@@ -54,7 +54,7 @@ public class FortunetellerApplication implements CommandLineRunner {
         }
 
         // TODO Remove once testing is properly set up
-        System.out.println(fortuneRepository.findFortuneByCountryIgnoreCase("s"));
+        System.out.println(fortuneRepository.findDistinctByCountryIgnoreCase("s"));
     }
 
 }
