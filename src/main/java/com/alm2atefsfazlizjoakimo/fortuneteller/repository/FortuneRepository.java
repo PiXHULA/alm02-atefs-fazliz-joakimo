@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface FortuneRepository extends MongoRepository<Fortune, String> {
-    Optional<Fortune> findFortuneByCountryLike(String country);
+    Optional<Fortune> findFortuneByCountryIgnoreCase(String country);
 }

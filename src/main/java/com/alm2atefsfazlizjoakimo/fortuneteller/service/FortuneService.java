@@ -14,7 +14,7 @@ public class FortuneService {
 
     public Fortune getFortune(Person person){
 
-       return fortuneRepository.findFortuneByCountryLike(person.getNationality().toLowerCase()).orElse(Fortune.builder()
+       return fortuneRepository.findFortuneByCountryIgnoreCase(person.getNationality().trim()).orElse(Fortune.builder()
                 .fortune("YOU ARE GOING TO DIE SOON").build());
 
     }

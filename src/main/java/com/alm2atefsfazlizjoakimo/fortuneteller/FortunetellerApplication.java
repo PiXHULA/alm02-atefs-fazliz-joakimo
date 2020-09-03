@@ -52,6 +52,9 @@ public class FortunetellerApplication implements CommandLineRunner {
                     .country("japan")
                     .build());
         }
+
+        // TODO Remove once testing is properly set up
+        System.out.println(fortuneRepository.findFortuneByCountryIgnoreCase("s"));
     }
 
 }
