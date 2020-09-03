@@ -12,11 +12,11 @@ public class PersonService {
     private final PersonRepository personRepository;
 
     @Autowired
-    public PersonService(PersonRepository personRepository){
+    public PersonService(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
-    public List<Person> getAllPersons(){
+    public List<Person> getAllPersons() {
         return personRepository.findAll();
     }
 }

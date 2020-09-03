@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class FortuneService {
-
     private final FortuneRepository fortuneRepository;
 
     public Fortune getFortune(Person person) {
