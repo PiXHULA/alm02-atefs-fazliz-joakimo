@@ -12,7 +12,6 @@ const SubmitForm = ({submitForm}) => {
   const [person, setPerson] = useState(initialPerson);
   const { name, nationality, gender, ethnicity, birthday } = person;
 
-  const clearState = () => setPerson(initialPerson);
   const onChange = (event) => {
     const { name, value } = event.target;
     setPerson(prevState => ({ ...prevState, [name]: value }))
@@ -20,8 +19,7 @@ const SubmitForm = ({submitForm}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    submitForm(person)
-    clearState();
+    submitForm(person,() => setPerson(initialPerson));
   };
 
   return (
