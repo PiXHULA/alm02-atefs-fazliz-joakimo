@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @RequiredArgsConstructor
 public class FortunetellerApplication implements CommandLineRunner {
-
     private final PersonRepository personRepository;
     private final FortuneRepository fortuneRepository;
 
@@ -22,14 +21,14 @@ public class FortunetellerApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        if (personRepository.findAll().size() == 0) {
-            personRepository.save(Person.builder()
-                .name("Joakim")
-                .Birthday("April 29")
-                .Ethnicity("Swedish Chilean")
-                .nationality("Sweden")
-                .Gender("Male")
-                .build());
+        if (fortuneRepository.count() == 0) {
+            /*personRepository.save(Person.builder()
+                    .name("Joakim")
+                    .Birthday("April 29")
+                    .Ethnicity("Swedish Chilean")
+                    .nationality("Sweden")
+                    .Gender("Male")
+                    .build());*/
 
             fortuneRepository.save(Fortune.builder()
                 .fortune("You will be rich some day")
@@ -51,6 +50,9 @@ public class FortunetellerApplication implements CommandLineRunner {
                 .country("japan")
                 .build());
         }
+
+        // TODO Remove once testing is properly set up
+        System.out.println(fortuneRepository.findDistinctByCountryIgnoreCase("SwEdEn"));
     }
 
 }
