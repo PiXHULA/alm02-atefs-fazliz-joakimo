@@ -20,7 +20,7 @@ public class FortunetellerApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         if (fortuneRepository.count() == 0) {
             /*personRepository.save(Person.builder()
                     .name("Joakim")
@@ -31,24 +31,24 @@ public class FortunetellerApplication implements CommandLineRunner {
                     .build());*/
 
             fortuneRepository.save(Fortune.builder()
-                    .fortune("You will be rich some day")
-                    .country("sweden")
-                    .build());
+                .fortune("You will be rich some day")
+                .country("sweden")
+                .build());
 
             fortuneRepository.save(Fortune.builder()
-                    .fortune("You will get broke today")
-                    .country("denmark")
-                    .build());
+                .fortune("You will get broke today")
+                .country("denmark")
+                .build());
 
             fortuneRepository.save(Fortune.builder()
-                    .fortune("No fortune for you ")
-                    .country("usa")
-                    .build());
+                .fortune("No fortune for you ")
+                .country("usa")
+                .build());
 
             fortuneRepository.save(Fortune.builder()
-                    .fortune("You will get shot ")
-                    .country("japan")
-                    .build());
+                .fortune("You will get shot ")
+                .country("japan")
+                .build());
         }
 
         // TODO Remove once testing is properly set up

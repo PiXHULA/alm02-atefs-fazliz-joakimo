@@ -24,10 +24,11 @@ const fetchPersons = dispatch => async () => {
   }
 }
 
-const sendPerson = dispatch => async (person) => {
+const sendPerson = dispatch => async (person,clearState) => {
   try {
     const response = await personsApi.post('/person', person);
     dispatch({ type: FORTUNE, payload: response.data })
+    clearState()
   } catch ({ response }) {
     if (response.status === 400) {
       dispatch({ type: ERROR_MESSAGE, payload: response.data.errors })

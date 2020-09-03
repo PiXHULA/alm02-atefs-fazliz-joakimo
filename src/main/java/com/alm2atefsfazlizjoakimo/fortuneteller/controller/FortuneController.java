@@ -19,5 +19,4 @@ public class FortuneController {
     public ResponseEntity<?> getFortune(@RequestBody @Valid Person person) {
         return ResponseEntity.ok(fortuneService.getFortune(person));
     }
-
 }

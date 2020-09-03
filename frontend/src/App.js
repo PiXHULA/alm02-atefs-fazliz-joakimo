@@ -3,7 +3,6 @@ import './App.css';
 import SubmitForm from "./components/SubmitForm";
 import { Context } from "./context/PersonProvider";
 
-
 const App = () => {
   const { state: { fortune, errMessage }, sendPerson } = useContext(Context);
   const errors = errMessage.map(message => <div key={message}>{message}</div>)
