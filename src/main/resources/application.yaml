@@ -1,21 +1,25 @@
 spring:
   profiles:
-    active: testuser
-  port: 8082
+    active: jocke
 ---
+
+
+
 spring:
   profiles: jocke
   data:
     mongodb:
       uri: mongodb+srv://user:userpassword@cluster0.pgrth.mongodb.net/fortuneteller?retryWrites=true&w=majority
-  port: 8083
+server:
+  port: 8084
 ---
 ---
+
 spring:
   profiles: testuser
   data:
     mongodb:
       uri: mongodb://localhost/test
-  port: 8084
-
+server:
+  port: 8083
 
