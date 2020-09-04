@@ -2,10 +2,7 @@ package com.alm2atefsfazlizjoakimo.fortuneteller.IT.repository;
 
 
 import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Fortune;
-import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Person;
 import com.alm2atefsfazlizjoakimo.fortuneteller.repository.FortuneRepository;
-import com.alm2atefsfazlizjoakimo.fortuneteller.repository.PersonRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
