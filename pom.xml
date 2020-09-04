@@ -16,13 +16,13 @@
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.11</maven.compiler.source>
+        <maven.compiler.target>1.11</maven.compiler.target>
         <junit.version>4.12</junit.version>
-        <java.version>1.8</java.version>
+        <java.version>1.11</java.version>
         <surefire.version>2.17</surefire.version>
         <testng.version>6.8.8</testng.version>
-        <jacoco.version>0.7.7.201606060606</jacoco.version>
+        <jacoco.version>0.8.3</jacoco.version>
     </properties>
 
     <dependencies>
@@ -126,10 +126,10 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
