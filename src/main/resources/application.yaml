@@ -8,6 +8,7 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://user:userpassword@cluster0.pgrth.mongodb.net/fortuneteller?retryWrites=true&w=majority
+  port: 8083
 ---
 ---
 spring:
