@@ -5,11 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Data
 public final class Fortune {
     @Id
     String ID;
