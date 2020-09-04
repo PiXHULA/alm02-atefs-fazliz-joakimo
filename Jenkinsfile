@@ -69,5 +69,11 @@ pipeline {
                 }
             }
         }
+         stage ('Deploy') {
+                    steps {
+                        echo 'Deploying...'
+                        sh 'mvn spring-boot:run'
+                    }
+                }
      }
 }
