@@ -23,7 +23,6 @@ public class ExceptionConfig extends ResponseEntityExceptionHandler {
         HttpStatus status, WebRequest request) {
 
         Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
         body.put("status", status.value());
 
         //Get all errors

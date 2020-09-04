@@ -18,5 +18,5 @@ public class PersonService {
 
     public List<Person> getAllPersons() {
         return personRepository.findAll();
-    }
+    } //remove
 }
