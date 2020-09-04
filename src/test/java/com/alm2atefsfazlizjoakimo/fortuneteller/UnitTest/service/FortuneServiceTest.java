@@ -83,4 +83,16 @@ public class FortuneServiceTest {
                 .findDistinctByCountryIgnoreCase(nationalityCaptor.capture());
         assertThat(nationalityCaptor.getValue()).isEqualTo("Not Use");
     }
+
+    @Test
+    public void testFortuneBuilder(){
+      String fortune = Fortune.builder().ID("das").toString();
+      assertThat(fortune).isNotNull();
+    }
+
+    @Test
+    public void testPersonBuilder(){
+      String person = Person.builder().ID("das").toString();
+      assertThat(person).isNotNull();
+    }
 }

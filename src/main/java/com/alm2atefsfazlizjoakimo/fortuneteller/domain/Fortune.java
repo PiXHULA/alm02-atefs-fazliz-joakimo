@@ -7,8 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 @Builder
-@Data
 public final class Fortune {
     @Id
     String ID;
