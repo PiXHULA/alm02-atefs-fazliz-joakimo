@@ -2,10 +2,7 @@ package com.alm2atefsfazlizjoakimo.fortuneteller.IT.repository;
 
 
 import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Fortune;
-import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Person;
 import com.alm2atefsfazlizjoakimo.fortuneteller.repository.FortuneRepository;
-import com.alm2atefsfazlizjoakimo.fortuneteller.repository.PersonRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,16 +21,19 @@ public class FortuneRepositoryTest {
 
     @BeforeEach
     void beforeEach() {
-        fortuneTest = fortuneRepository.save(Fortune.builder()
-                .fortune("You will be rich some day")
-                .country("sweden")
-                .build());
+        Fortune fortune = new Fortune();
+        fortune.setFortune("You will be rich some day");
+        fortune.setID("asd");
+        fortune.setCountry("sweden");
+        fortuneTest = fortuneRepository.save(fortune);
     }
 
     @Test
     public void receiveFortuneFromDbTest() { //correct name?
         Fortune fortune = fortuneRepository.findById(fortuneTest.getID()).orElse(null);
         assert fortune != null;
-        assertThat(fortune.equals(fortuneTest)).isTrue();
+        assertThat(fortune.getFortune()).isEqualTo(fortuneTest.getFortune());
+        assertThat(fortune.getCountry()).isEqualTo(fortuneTest.getCountry());
+        assertThat(fortune.getID()).isEqualTo(fortuneTest.getID());
     }
 }

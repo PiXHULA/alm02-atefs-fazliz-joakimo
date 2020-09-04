@@ -3,18 +3,15 @@ package com.alm2atefsfazlizjoakimo.fortuneteller.IT.controller;
 import com.alm2atefsfazlizjoakimo.fortuneteller.controller.FortuneController;
 import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Fortune;
 import com.alm2atefsfazlizjoakimo.fortuneteller.domain.Person;
-import com.alm2atefsfazlizjoakimo.fortuneteller.repository.FortuneRepository;
-import com.alm2atefsfazlizjoakimo.fortuneteller.repository.PersonRepository;
 import com.alm2atefsfazlizjoakimo.fortuneteller.service.FortuneService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 
@@ -28,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(FortuneController.class)
+@ActiveProfiles("testuser")
 public class FortuneControllerTest {
 
     Fortune fortuneTest;
