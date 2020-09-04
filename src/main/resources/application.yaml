@@ -16,6 +16,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost/test
-
+  port: 8084
 
 
