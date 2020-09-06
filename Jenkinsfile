@@ -1,5 +1,4 @@
 pipeline {
-
      agent any
      stages {
         stage('Build') {
@@ -69,10 +68,10 @@ pipeline {
                 }
             }
         }
-         stage ('Deploy') {
-                    steps {
-                        echo 'Deploying...'
-                        sh 'mvn spring-boot:run'
+        stage ('Deploy') {
+            agent any
+                steps {
+                        sh 'asadmin --port 4848 deploy --force --name fortuneteller-${DEPLOY_ENV} --contextroot fortuneteller-${DEPLOY_ENV} target/*.war'
                     }
                 }
      }
