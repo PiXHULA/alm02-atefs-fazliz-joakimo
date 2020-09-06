@@ -6,14 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class FortunetellerApplication extends SpringBootServletInitializer {
-
+public class FortunetellerApplication {
     public static void main(String[] args) {
         SpringApplication.run(FortunetellerApplication.class, args);
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(FortunetellerApplication.class);
     }
 }
