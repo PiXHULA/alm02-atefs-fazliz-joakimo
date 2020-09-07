@@ -7,7 +7,7 @@ pipeline {
         stage ('Prepare'){
             steps {
                 echo 'Changing permissions..'
-                sh 'chmod 777 ~/.jenkins'
+                sh 'chmod 777 ~/.jenkins/*'
             }
         }
         stage('Build') {
