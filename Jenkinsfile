@@ -4,17 +4,17 @@ pipeline {
          choice(name: 'DEPLOY_ENV', choices: ['int', 'stage', 'test', 'prod'], description:'Target environment')
      }
      stages {
+        stage ('Prepare'){
+            steps {
+                echo 'Changing permissions..'
+                sh 'chmod 777 ~/.jenkins'
+            }
+        }
         stage('Build') {
 
             agent {
                 docker { image 'rasilva1986/java-maven:alm' }
             }
-
-            steps {
-                echo 'Changing permissions..'
-                sh 'chmod 777 ~/.jenkins'
-            }
-
             steps {
                 echo 'Building..'
                 sh 'mvn clean install'
