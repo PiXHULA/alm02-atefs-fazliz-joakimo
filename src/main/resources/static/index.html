@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fortune Teller</title>
+</head>
+<body>
+
+<form id="form">
+    <label for="fname">Name</label><br />
+    <input type="text" id="fname" name="fname"><br />
+    <label for="nationality">Nationality</label><br/>
+    <input type="text" id="nationality" name="nationality"><br/>
+    <label for="gender">Gender</label><br/>
+    <input type="text" id="gender" name="gender"><br/>
+    <label for="ethnicity">Ethnicity</label><br>
+    <input type="text" id="ethnicity" name="ethnicity"><br/>
+    <label for="birthday">Birthday</label><br/>
+    <input type="text" id="birthday" name="birthday"><br/>
+    <input type="submit">
+</form>
+<p id="result"></p>
+<ul id="errMessages"></ul>
+
+<script>
+  const form = document.getElementById("form");
+
+  async function postData(url, data) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+
+  const submit = () => {
+    const name = document.getElementById("fname").value;
+    const nationality = document.getElementById("nationality").value;
+    const gender = document.getElementById("gender").value;
+    const ethnicity = document.getElementById("ethnicity").value;
+    const birthday = document.getElementById("birthday").value;
+
+    postData('http://localhost:8084/fortune',
+        { name, nationality, gender, ethnicity, birthday })
+    .then(data => {
+      if (data.status === 400) {
+        const ul=document.getElementById("errMessages");
+        ul.innerHTML="";
+        data.errors.forEach(errMessage => {
+            ul.innerHTML += `<li>${errMessage}</li>`
+        });
+      }else {
+        document.getElementById("result").innerHTML = data.fortune;
+        document.getElementById("errMessages").innerHTML = ""
+      }
+    }).catch(err => {
+      console.log("Server went down")
+    })
+  };
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault()
+    submit();
+  })
+</script>
+</body>
+</html>
