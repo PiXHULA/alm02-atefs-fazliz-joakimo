@@ -1,5 +1,8 @@
 pipeline {
      agent any
+     parameters{
+         choice(name: 'DEPLOY_ENV', choices: ['int', 'stage', 'test', 'prod'], description:'Target environment')
+     }
      stages {
         stage('Build') {
 
@@ -71,7 +74,7 @@ pipeline {
         stage ('Deploy') {
             agent any
                 steps {
-                        sh 'asadmin --port 4848 deploy --force --name fortuneteller --contextroot fortuneteller target/*.war'
+                        sh 'asadmin --port 4848 deploy --force --name alm02-atefs-fazliz-joakim-o-${DEPLOY_ENV} --contextroot alm02-atefs-fazliz-joakim-o-${DEPLOY_ENV} target/*.war'
                     }
                 }
      }
