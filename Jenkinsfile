@@ -19,15 +19,19 @@ pipeline {
                 echo 'Building..'
                 sh 'mvn clean install'
             }
-
         }
-
+        stage ('Init npm')
+            agent {
+                steps {
+                    echo 'Creating React app..'
+                    sh 'cd ./frontend && npm run build'
+                }
+            }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 sh 'mvn test'
             }
-
         }
 
         stage ('Publish') {
@@ -62,7 +66,6 @@ pipeline {
                 }
             }
         }
-
         stage('Saving artifacts') {
 
             steps {
