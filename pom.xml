@@ -90,7 +90,7 @@
                     <execution>
                         <id>npm install</id>
                         <goals>
-                            <goal>sudo npm</goal>
+                            <goal>npm</goal>
                         </goals>
                         <configuration>
                             <arguments>install</arguments>

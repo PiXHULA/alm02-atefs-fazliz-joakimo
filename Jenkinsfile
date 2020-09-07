@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                 echo 'Building..'
-                sh 'mvn clean install'
+                sh 'cd frontend && npm install && cd .. && mvn clean install'
             }
         }
 
