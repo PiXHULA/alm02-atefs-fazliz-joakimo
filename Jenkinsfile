@@ -21,7 +21,6 @@ pipeline {
             }
         }
         stage ('Init npm')
-            agent {
                 steps {
                     echo 'Creating React app..'
                     sh 'cd ./frontend && npm run build'
