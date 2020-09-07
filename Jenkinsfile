@@ -16,7 +16,8 @@ pipeline {
             }
             steps {
                 echo 'Building..'
-                sh 'cd frontend && sudo npm install && cd .. && mvn clean install'
+                //sh 'cd frontend && sudo npm install && cd .. && mvn clean install'
+                sh 'mvn clean install'
             }
         }
 
@@ -59,6 +60,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Frontend build') {
+                    agent {
+                        docker { image 'jimador/docker-jdk-8-maven-node' }
+                    }
+                    steps {
+                        echo 'Building..'
+                        sh 'cd frontend && npm install && npm run build'
+                        //sh 'mvn clean install'
+                    }
+                }
+
         stage('Saving artifacts') {
 
             steps {
