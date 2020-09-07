@@ -67,7 +67,7 @@ pipeline {
                     }
                     steps {
                         echo 'Building..'
-                        sh 'cd frontend && npm install && npm run build'
+                        sh 'cd frontend && sudo npm install && sudo npm run build'
                         //sh 'mvn clean install'
                     }
                 }
