@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/person") // TODO Change to "/fortune"?
+@RequestMapping("/fortune")
 @RequiredArgsConstructor
 public class FortuneController {
     private final FortuneService fortuneService;
