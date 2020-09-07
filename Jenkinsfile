@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Build') {
             agent {
-                docker { image 'rasilva1986/java-maven:alm' }
+                docker { image 'jimador/docker-jdk-8-maven-node' }
             }
             steps {
                 echo 'Building..'
