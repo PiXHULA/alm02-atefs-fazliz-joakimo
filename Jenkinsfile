@@ -20,11 +20,12 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage ('Init npm')
+        stage ('Init npm') {
                 steps {
                     echo 'Creating React app..'
                     sh 'cd ./frontend && npm run build'
                 }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
