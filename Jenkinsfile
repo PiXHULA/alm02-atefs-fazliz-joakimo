@@ -25,7 +25,6 @@ pipeline {
                     echo 'Creating React app..'
                     sh 'cd ./frontend && npm run build'
                 }
-            }
         stage('Test') {
             steps {
                 echo 'Testing..'
