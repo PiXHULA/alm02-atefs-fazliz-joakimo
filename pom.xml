@@ -84,8 +84,8 @@
                         <configuration>
                             <skip>true</skip>
                             <nodeVersion>v8.9.4</nodeVersion>
-<!--                            <npmVersion>5.6.0</npmVersion>-->
-                            <npmVersion>3.8.6</npmVersion>
+                            <npmVersion>5.6.0</npmVersion>
+<!--                            <npmVersion>3.8.6</npmVersion>-->
                         </configuration>
                     </execution>
                     <execution>
