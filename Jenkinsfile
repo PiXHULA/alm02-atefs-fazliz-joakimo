@@ -11,6 +11,11 @@ pipeline {
             }
 
             steps {
+                echo 'Changing permissions..'
+                sh 'chmod 777 ~/.jenkins'
+            }
+
+            steps {
                 echo 'Building..'
                 sh 'mvn clean install'
             }
