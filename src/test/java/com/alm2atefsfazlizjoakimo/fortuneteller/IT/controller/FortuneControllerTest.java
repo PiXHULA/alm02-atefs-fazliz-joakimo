@@ -56,7 +56,7 @@ public class FortuneControllerTest {
                 .Gender("Male")
                 .build());
 
-        mockMvc.perform(post("/person").contentType(MediaType.APPLICATION_JSON).content(mockPerson))
+        mockMvc.perform(post("/fortune").contentType(MediaType.APPLICATION_JSON).content(mockPerson))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.fortune", is(fortuneTest.getFortune())))
                 .andExpect(jsonPath("$.country", is(fortuneTest.getCountry())))
