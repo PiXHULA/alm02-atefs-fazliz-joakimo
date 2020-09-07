@@ -61,17 +61,6 @@ pipeline {
             }
         }
 
-        stage('Frontend build') {
-                    agent {
-                        docker { image 'jimador/docker-jdk-8-maven-node' }
-                    }
-                    steps {
-                        echo 'Building..'
-                        sh 'cd frontend && sudo npm install && sudo npm run build'
-                        //sh 'mvn clean install'
-                    }
-                }
-
         stage('Saving artifacts') {
 
             steps {
